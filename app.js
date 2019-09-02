@@ -8,7 +8,7 @@ var todolist = [];
 
 /* The to do list and the form are displayed */
 var server = app
-  .get("/todo", function(req, res) {
+  server.get("/todo", function(req, res) {
     res.render("todo.ejs", { todolist: todolist, clickHandler: "func1();" });
   })
 
@@ -21,7 +21,7 @@ var server = app
   })
 
   /* Deletes an item from the to do list */
-  .get("/todo/delete/:id", function(req, res) {
+  server.delete("/todo/delete/:id", function(req, res) {
     if (typeof todolist[req.params.id] !== "undefined") {
       todolist.splice(req.params.id, 1);
     }
