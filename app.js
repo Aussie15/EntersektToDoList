@@ -8,7 +8,7 @@ var todolist = [];
 
 /* The to do list and the form are displayed */
 var server = app
-  server.get("/todo", function(req, res) {
+  .get("/todo", function(req, res) {
     res.render("todo.ejs", { todolist: todolist, clickHandler: "func1();" });
   })
 
@@ -20,17 +20,20 @@ var server = app
     res.redirect("/todo");
   })
 
+  /*(!== ERROR) (!= FIXED)*/
+
   /* Deletes an item from the to do list */
-  server.delete("/todo/delete/:id", function(req, res) {
-    if (typeof todolist[req.params.id] !== "undefined") {
+  .get("/todo/delete/:id", function(req, res) {
+    if (typeof todolist[req.params.id] != "undefined") {
       todolist.splice(req.params.id, 1);
     }
     res.redirect("/todo");
   })
 
+  /*(!== ERROR) (!= FIXED)*/
   /* Edits an item from the to do list */
   .post("/todo/edit/:id", urlencodedParser, function(req, res) {
-    if (typeof todolist[req.params.id] !== "undefined") {
+    if (typeof todolist[req.params.id] != "undefined") {
       todolist[req.params.id] = req.body["edittodo"];
     }
     res.redirect("/todo");
