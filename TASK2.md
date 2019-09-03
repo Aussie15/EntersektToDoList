@@ -1,0 +1,1 @@
+2. Bug at first is the X Refreshes the whole page and does not delete the item(!==) changed to (!=)in app.js
